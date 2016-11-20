@@ -1,0 +1,22 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'application'
+
+
+mainClassName = 'ru.nestekon.simplegroupchat.SimpleGroupChat'
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'org.igniterealtime.smack:smack-core:4.1.8'
+    compile 'org.igniterealtime.smack:smack-tcp:4.1.8'
+	compile 'org.igniterealtime.smack:smack-im:4.1.8'
+}
