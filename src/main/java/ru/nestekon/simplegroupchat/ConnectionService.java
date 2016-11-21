@@ -10,10 +10,7 @@ public class ConnectionService {
 	private boolean mActive;
 	private Thread mThread;
 	private Connection mConnection;
-	public static enum ConnectionState
-    {
-        CONNECTED ,AUTHENTICATED, CONNECTING ,DISCONNECTING ,DISCONNECTED;
-    }
+	public static Connection.ConnectionState sConnectionState;
 	
 	public void start(Login aLogin)	{
 		if(!mActive)
@@ -25,6 +22,7 @@ public class ConnectionService {
                     //@Override
                     public void run() {
                         initConnection(aLogin);
+                        // TODO сделать так чтобы поток не заканчивался
                     }
                 });
                 mThread.start();

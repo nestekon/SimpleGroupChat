@@ -43,7 +43,7 @@ public class Connection  implements ConnectionListener,ChatMessageListener {
 	}
 	
 	public void connect() throws IOException,SmackException,XMPPException
-    {
+    { 
 		//XMPPTCPConnectionConfiguration.XMPPTCPConnectionConfigurationBuilder builder=
 		XMPPTCPConnectionConfiguration.Builder builder=
                 XMPPTCPConnectionConfiguration.builder();
@@ -74,7 +74,7 @@ public class Connection  implements ConnectionListener,ChatMessageListener {
     public void processMessage(Chat chat, Message message) {
 
         String from = message.getFrom();
-        String contactJid="";
+        String contactJid = "";
         if ( from.contains("/"))
         {
             contactJid = from.split("/")[0];
@@ -93,12 +93,12 @@ public class Connection  implements ConnectionListener,ChatMessageListener {
 	
 	@Override
     public void connected(XMPPConnection connection) {
-        //ConnectionService.sConnectionState=ConnectionState.CONNECTED;
+        ConnectionService.sConnectionState=ConnectionState.CONNECTED;
     }
 
     @Override
     public void authenticated(XMPPConnection connection, boolean resumed) {
-    	//ConnectionService.sConnectionState=ConnectionState.CONNECTED;
+    	ConnectionService.sConnectionState=ConnectionState.CONNECTED;
         // TODO
         //showContactListActivityWhenAuthenticated();
 
@@ -106,28 +106,28 @@ public class Connection  implements ConnectionListener,ChatMessageListener {
 
     @Override
     public void connectionClosed() {
-        //ConnectionService.sConnectionState=ConnectionState.DISCONNECTED;
+        ConnectionService.sConnectionState=ConnectionState.DISCONNECTED;
     }
 
     @Override
     public void connectionClosedOnError(Exception e) {
     	e.printStackTrace();
-    	//ConnectionService.sConnectionState=ConnectionState.DISCONNECTED;
+    	ConnectionService.sConnectionState=ConnectionState.DISCONNECTED;
     }
 
     @Override
     public void reconnectingIn(int seconds) {
-        //ConnectionService.sConnectionState = ConnectionState.CONNECTING;
+        ConnectionService.sConnectionState = ConnectionState.CONNECTING;
     }
 
     @Override
     public void reconnectionSuccessful() {
-        //ConnectionService.sConnectionState = ConnectionState.CONNECTED;
+        ConnectionService.sConnectionState = ConnectionState.CONNECTED;
     }
 
     @Override
     public void reconnectionFailed(Exception e) {
-        //ConnectionService.sConnectionState = ConnectionState.DISCONNECTED;
+        ConnectionService.sConnectionState = ConnectionState.DISCONNECTED;
     }
     
 }

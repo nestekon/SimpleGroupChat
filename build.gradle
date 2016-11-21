@@ -19,4 +19,5 @@ dependencies {
     compile 'org.igniterealtime.smack:smack-core:4.1.8'
     compile 'org.igniterealtime.smack:smack-tcp:4.1.8'
 	compile 'org.igniterealtime.smack:smack-im:4.1.8'
+	compile 'org.igniterealtime.smack:smack-java7:4.1.8'
 }
