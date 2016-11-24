@@ -6,7 +6,7 @@ import org.jivesoftware.smack.SmackException;
 import org.jivesoftware.smack.XMPPException;
 
 public class ConnectionService {
-	
+		
 	private boolean mActive;
 	private Thread mThread;
 	private Connection mConnection;
@@ -23,6 +23,14 @@ public class ConnectionService {
                     public void run() {
                         initConnection(aLogin);
                         // TODO сделать так чтобы поток не заканчивался
+                        try {
+                        	while (mActive) {
+                        		
+                        	}
+                        } catch(Exception ex)
+                        {
+                        	ex.printStackTrace();
+                        }
                     }
                 });
                 mThread.start();
@@ -33,6 +41,7 @@ public class ConnectionService {
     public void stop()
     {
         mActive = false;
+        
         if( mConnection != null)
         {
             mConnection.disconnect();
@@ -53,5 +62,10 @@ public class ConnectionService {
             e.printStackTrace();
             stop();
         }
+	}
+	
+	public static void sWhenAuthenticated() {
+		JoinGroupChatUI joinGroupChatUI = new JoinGroupChatUI();
+		joinGroupChatUI.create();
 	}
 }

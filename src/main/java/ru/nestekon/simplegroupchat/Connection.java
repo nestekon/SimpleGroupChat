@@ -99,7 +99,8 @@ public class Connection  implements ConnectionListener,ChatMessageListener {
     @Override
     public void authenticated(XMPPConnection connection, boolean resumed) {
     	ConnectionService.sConnectionState=ConnectionState.CONNECTED;
-        // TODO
+    	ConnectionService.sWhenAuthenticated();
+    	// TODO
         //showContactListActivityWhenAuthenticated();
 
     }
